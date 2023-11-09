@@ -1,10 +1,13 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./css/index.css";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+import { Edit } from "./components/edit";
+import Cv from "./components/cv";
+
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <App />
+    <Edit></Edit>
+    <Cv></Cv>
   </React.StrictMode>,
-)
+);

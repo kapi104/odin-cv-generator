@@ -1,0 +1,11 @@
+.forms > * {
+  background-color: rgb(255, 255, 255);
+  box-shadow: 1px 1px 8px rgb(37, 37, 37);
+  width: 90%;
+}
+
+.forms > button {
+  display: flex;
+  justify-content: space-between;
+  border: none;
+}
