@@ -1,12 +1,12 @@
-import { useState } from "react";
-import { Input } from "./edit";
+import { PersonalDetailsForm } from "./PersonalDetailsForm";
+import { Education } from "./Education";
 
-function Section({ header, children, isExtendable = false}) {
+export function Section({ header, children, isExtendable = false, onClick}) {
   return (
     <header>
       {
       isExtendable ?
-        <div className="expand-section-header">
+        <div className="expand-section-header" onClick={onClick}>
           <h2>{header}</h2>
           
         </div>
@@ -18,33 +18,15 @@ function Section({ header, children, isExtendable = false}) {
   );
 }
 
-function PersonalDetails({personalState}) {
-  return (
-    <Section header="personal Details">
-      <Input label="Full name" isRecommended={false} isRequired={true} personalState={personalState}></Input>
-      <Input label="Email" type="email" isRecommended={true} personalState={personalState}></Input>
-      <Input label="Phone number" type="phone" isRecommended={true} personalState={personalState}></Input>
-      <Input label="Address" type="text" isRecommended={true} personalState={personalState}></Input>
-    </Section>
-  );
+export function InformationList() {
+return 111
 }
 
-function InformationList() {
-
-}
-
-function Education() {
-  // const [formState, setFormState] = useState("collapsed");
-  return <Section header="Education" isExtendable={true}>
-
-  </Section>;
-}
-
-export default function ContentForms({personalState}) {
+export default function ContentForms({states}) {
   return (
     <>
-      <PersonalDetails personalState={personalState}></PersonalDetails>
-      <Education></Education>
+      <PersonalDetailsForm personal={states.personal}></PersonalDetailsForm>
+      <Education education={states.education}></Education>
     </>
   );
 }

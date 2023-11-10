@@ -20,7 +20,7 @@ function Input({
   type = "text",
   isRecommended = false,
   isRequired = false,
-  personalState
+  state
 }) {
   const camelCaseLabel = camelCase(label) 
   return (
@@ -31,13 +31,13 @@ function Input({
       type={type} 
       id={camelCaseLabel} 
       required={isRequired} 
-      onChange={(e) => personalState.setPersonalDetails({...personalState.personalDetails, [camelCaseLabel]: e.target.value })}
+      onChange={(e) => state.set({...state.get, [camelCaseLabel]: e.target.value })}
       />
     </div>
   );
 }
 
-export default function Edit({personalState}) {
+export default function Edit({states}) {
   const [currentForm, setCurrentForm] = useState("content");
 
   function changeCurrentForm() {
@@ -51,7 +51,7 @@ export default function Edit({personalState}) {
       <SwitchFormBtn onClick={changeCurrentForm}></SwitchFormBtn>
 
       {currentForm === "content" ? (
-        <ContentForms personalState={personalState}></ContentForms>
+        <ContentForms states={states}></ContentForms>
       ) : (
         <CustomizeForms></CustomizeForms>
       )}

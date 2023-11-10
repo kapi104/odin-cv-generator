@@ -11,14 +11,26 @@ const personalDetailsTemplate = {
 
 export default function Container() {
   const [personalDetails, setPersonalDetails] = useState(personalDetailsTemplate);
-  const personalState = {
-    personalDetails,
-    setPersonalDetails
+  const personal = {
+    get: personalDetails,
+    set: setPersonalDetails
+  }
+
+  const [educationDetails, setEducation] = useState({})
+  const education = {
+    get: educationDetails,
+    set: setEducation
+  }
+
+  const [experienceDetails, setExperience] = useState({})
+  const experience = {
+    get: experienceDetails,
+    set: setExperience
   }
 
   return (
     <div className="container">
-      <Edit personalState={personalState}></Edit>
+      <Edit states={{personal, education, experience}}></Edit>
       <Cv></Cv>
     </div>
   )
