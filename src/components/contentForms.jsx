@@ -1,12 +1,20 @@
 import { useState } from "react";
 import { Input } from "./edit";
 
-function Section({ header, children }) {
+function Section({ header, children, isExtendable = false}) {
   return (
-    <div>
-      <h2>{header}</h2>
+    <header>
+      {
+      isExtendable ?
+        <div className="expand-section-header">
+          <h2>{header}</h2>
+          
+        </div>
+       :
+        <h2>{header}</h2>
+      }
       <div>{children}</div>
-    </div>
+    </header>
   );
 }
 
@@ -26,19 +34,17 @@ function InformationList() {
 }
 
 function Education() {
-  const [formState, setFormState] = useState('collapsed')
-  return (
-    <Section header="Education">
-      
-    </Section>
-  )
+  // const [formState, setFormState] = useState("collapsed");
+  return <Section header="Education" isExtendable={true}>
+
+  </Section>;
 }
 
-export default function ContentForms() {
+export default function ContentForms({setPersonalDetails}) {
   return (
     <>
-  <PersonalDetails></PersonalDetails>
-  <Education></Education>
+      <PersonalDetails></PersonalDetails>
+      <Education></Education>
     </>
   );
 }

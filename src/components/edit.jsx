@@ -1,5 +1,6 @@
 import "./../css/edit.css";
 import { useState } from "react";
+import {camelCase} from "./../assets/utils"
 import ContentForms from "./contentForms";
 import CustomizeForms from "./customizeForms";
 
@@ -20,16 +21,17 @@ function Input({
   isRecommended = false,
   isRequired = false,
 }) {
+  const camelCaseLabel = camelCase(label) 
   return (
     <div className="input">
-      <label for={label}>{label}</label>
+      <label htmlFor={camelCaseLabel}>{label}</label>
       {isRecommended && <span>recommended</span>}
-      <input type={type} id={label} required={isRequired} />
+      <input type={type} id={camelCaseLabel} required={isRequired} />
     </div>
   );
 }
 
-export default function Edit() {
+export default function Edit({setPersonalDetails}) {
   const [currentForm, setCurrentForm] = useState("content");
 
   function changeCurrentForm() {
@@ -44,7 +46,7 @@ export default function Edit() {
       <SwitchFormBtn onClick={changeCurrentForm}></SwitchFormBtn>
 
       {currentForm === "content" ? (
-        <ContentForms></ContentForms>
+        <ContentForms setPersonalDetails={setPersonalDetails}></ContentForms>
       ) : (
         <CustomizeForms></CustomizeForms>
       )}
