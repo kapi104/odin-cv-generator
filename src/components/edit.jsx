@@ -20,25 +20,30 @@ function Input({
   type = "text",
   isRecommended = false,
   isRequired = false,
+  personalState
 }) {
   const camelCaseLabel = camelCase(label) 
   return (
     <div className="input">
       <label htmlFor={camelCaseLabel}>{label}</label>
       {isRecommended && <span>recommended</span>}
-      <input type={type} id={camelCaseLabel} required={isRequired} />
+      <input 
+      type={type} 
+      id={camelCaseLabel} 
+      required={isRequired} 
+      onChange={(e) => personalState.setPersonalDetails({...personalState.personalDetails, [camelCaseLabel]: e.target.value })}
+      />
     </div>
   );
 }
 
-export default function Edit({setPersonalDetails}) {
+export default function Edit({personalState}) {
   const [currentForm, setCurrentForm] = useState("content");
 
   function changeCurrentForm() {
     currentForm === "content"
       ? setCurrentForm("customize")
       : setCurrentForm("content");
-    console.log(1);
   }
 
   return (
@@ -46,7 +51,7 @@ export default function Edit({setPersonalDetails}) {
       <SwitchFormBtn onClick={changeCurrentForm}></SwitchFormBtn>
 
       {currentForm === "content" ? (
-        <ContentForms setPersonalDetails={setPersonalDetails}></ContentForms>
+        <ContentForms personalState={personalState}></ContentForms>
       ) : (
         <CustomizeForms></CustomizeForms>
       )}

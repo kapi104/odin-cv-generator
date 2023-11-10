@@ -2,13 +2,24 @@ import { useState } from "react"
 import {Edit} from "./edit";
 import Cv from "./cv";
 
+const personalDetailsTemplate = {
+  fullName: '',
+  email: '',
+  phoneNumber: '',
+  address: ''
+}
+
 export default function Container() {
-  const [personalDetails, setPersonalDetails] = useState('ok');
+  const [personalDetails, setPersonalDetails] = useState(personalDetailsTemplate);
+  const personalState = {
+    personalDetails,
+    setPersonalDetails
+  }
 
   return (
     <div className="container">
-      <Edit setPersonalDetails={setPersonalDetails}></Edit>
-      <Cv PersonalDetails={personalDetails}></Cv>
+      <Edit personalState={personalState}></Edit>
+      <Cv></Cv>
     </div>
   )
 } 

@@ -18,13 +18,13 @@ function Section({ header, children, isExtendable = false}) {
   );
 }
 
-function PersonalDetails() {
+function PersonalDetails({personalState}) {
   return (
     <Section header="personal Details">
-      <Input label="Full name" isRecommended={false} isRequired={true}></Input>
-      <Input label="Email" type="email" isRecommended={true}></Input>
-      <Input label="Phone number" type="phone" isRecommended={true}></Input>
-      <Input label="Address" type="text" isRecommended={true}></Input>
+      <Input label="Full name" isRecommended={false} isRequired={true} personalState={personalState}></Input>
+      <Input label="Email" type="email" isRecommended={true} personalState={personalState}></Input>
+      <Input label="Phone number" type="phone" isRecommended={true} personalState={personalState}></Input>
+      <Input label="Address" type="text" isRecommended={true} personalState={personalState}></Input>
     </Section>
   );
 }
@@ -40,10 +40,10 @@ function Education() {
   </Section>;
 }
 
-export default function ContentForms({setPersonalDetails}) {
+export default function ContentForms({personalState}) {
   return (
     <>
-      <PersonalDetails></PersonalDetails>
+      <PersonalDetails personalState={personalState}></PersonalDetails>
       <Education></Education>
     </>
   );
