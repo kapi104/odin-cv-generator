@@ -1,6 +1,6 @@
 import "./../css/edit.css";
 import { useState } from "react";
-import {camelCase} from "./../assets/utils"
+import { camelCase } from "./../assets/utils";
 import ContentForms from "./contentForms";
 import CustomizeForms from "./customizeForms";
 
@@ -18,28 +18,54 @@ function SwitchFormBtn({ onClick }) {
 function Input({
   label,
   type = "text",
-  isRecommended = false,
   isRequired = false,
-  state,
-  value
+  value,
+  handleInput,
+  formPrefix,
 }) {
-  const camelCaseLabel = camelCase(label) 
+  const camelCaseLabel = camelCase(label);
+  const id = formPrefix + camelCaseLabel;
   return (
     <div className="input">
-      <label htmlFor={camelCaseLabel}>{label}</label>
-      {isRecommended && <span>recommended</span>}
-      <input 
-      type={type} 
-      value={value}
-      id={camelCaseLabel} 
-      required={isRequired} 
-      onChange={(e) => state.set([...state.get, {[camelCaseLabel]: e.target.value}])}
+      <label htmlFor={id}>{label}</label>
+      <input
+        type={type}
+        value={value}
+        id={id}
+        required={isRequired}
+        onChange={(e) => {
+          handleInput(e.target.value, camelCaseLabel);
+        }}
       />
     </div>
   );
 }
 
-export default function Edit({states}) {
+export function TextArea({
+  label,
+  isRequired = false,
+  value,
+  handleInput,
+  formPrefix,
+}) {
+  const camelCaseLabel = camelCase(label);
+  const id = formPrefix + camelCaseLabel;
+  return (
+    <div className="input">
+      <label htmlFor={id}>{label}</label>
+      <textarea
+        value={value}
+        id={id}
+        required={isRequired}
+        onChange={(e) => {
+          handleInput(e.target.value, camelCaseLabel);
+        }}
+      />
+    </div>
+  );
+}
+
+export default function Edit({ states }) {
   const [currentForm, setCurrentForm] = useState("content");
 
   function changeCurrentForm() {

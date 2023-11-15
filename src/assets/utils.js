@@ -1,9 +1,11 @@
 import { v4 as uuid } from "uuid";
 
 function camelCase(str) {
-  return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function (word, index) {
+  return str
+    .replace(/(?:^\w|[A-Z]|\b\w)/g, function (word, index) {
       return index == 0 ? word.toLowerCase() : word.toUpperCase();
-  }).replace(/\s+/g, '')
+    })
+    .replace(/\s+/g, "");
 }
 
 function getId() {
@@ -12,23 +14,33 @@ function getId() {
 
 function educationFactory(id, school, degree, startDate, endDate, location) {
   return {
-  id,
- school,
- degree,
- startDate,
- endDate,
- location}
+    id,
+    school,
+    degree,
+    startDate,
+    endDate,
+    location,
+  };
 }
 
-function experienceFactory(id, company, position, startDate, endDate, location, description) {
+function experienceFactory(
+  id,
+  company,
+  positionTitle,
+  startDate,
+  endDate,
+  location,
+  description,
+) {
   return {
-  id,
- company,
- position,
- startDate,
- endDate,
- location,
- description}
+    id,
+    company,
+    positionTitle,
+    startDate,
+    endDate,
+    location,
+    description,
+  };
 }
 
-export {camelCase, getId, educationFactory, experienceFactory}
+export { camelCase, getId, educationFactory, experienceFactory };
