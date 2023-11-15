@@ -26,18 +26,39 @@ export function Education({ education }) {
     setCurrentlyEditing(index)
   }
 
-  
-
   function addSchool() {
     education.set([...education.get, educationFactory(getId(), '','','','','')])
     setCurrentlyEditing(education.get.length)
-    console.log(education);
+  }
+
+  function handleDelete() {
+    if (currentlyEditing > 0) {
+      const newEducation = education.get;
+      newEducation.splice(currentlyEditing, 1)
+      console.log(newEducation);
+      education.set([...newEducation])
+      setCurrentlyEditing(currentlyEditing - 1)
+    } else if (currentlyEditing === 0 && education.get.length === 1){
+      const newEducation = education.get[0]
+      const keys = Object.keys(newEducation);
+      keys.shift()
+      keys.forEach(k => {
+        newEducation[k] = '';
+      })
+      education.set([newEducation])
+    } else {
+      const newEducation = education.get;
+      newEducation.splice(currentlyEditing, 1)
+      console.log({currentlyEditing, newEducation});
+      education.set([...newEducation])
+    }
   }
 
     return (
       <Section header="Education">
         <ItemsList state={education} handleChange={changeForm} handleAdd={addSchool}></ItemsList>
         <EducationForm education={education} currentlyEditing={currentlyEditing}></EducationForm>
+        <DeleteBtn handleDelete={handleDelete}></DeleteBtn>
       </Section>
     )
 }

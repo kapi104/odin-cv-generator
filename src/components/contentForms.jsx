@@ -34,8 +34,8 @@ export function ItemsList({state, handleChange, handleAdd}) {
   )
 }
 
-export function DeleteBtn() {
-  return <button>Delete</button>
+export function DeleteBtn({handleDelete}) {
+  return <button onClick={handleDelete}>Delete</button>
 }
 
 export default function ContentForms({states}) {
