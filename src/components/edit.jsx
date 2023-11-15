@@ -20,7 +20,8 @@ function Input({
   type = "text",
   isRecommended = false,
   isRequired = false,
-  state
+  state,
+  value
 }) {
   const camelCaseLabel = camelCase(label) 
   return (
@@ -29,9 +30,10 @@ function Input({
       {isRecommended && <span>recommended</span>}
       <input 
       type={type} 
+      value={value}
       id={camelCaseLabel} 
       required={isRequired} 
-      onChange={(e) => state.set({...state.get, [camelCaseLabel]: e.target.value })}
+      onChange={(e) => state.set([...state.get, {[camelCaseLabel]: e.target.value}])}
       />
     </div>
   );

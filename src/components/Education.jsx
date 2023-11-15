@@ -1,58 +1,43 @@
 import { useState } from "react";
-import { Section, InformationList } from "./contentForms";
+import { Section, DeleteBtn, ItemsList } from "./contentForms";
 import { Input } from "./edit";
-import { getId } from "../assets/utils";
+import { educationFactory, getId } from "../assets/utils";
 
-function educationFactory(school, degree, startDate, endDate, location) {
-     return {school,
-    degree,
-    startDate,
-    endDate,
-    location}
-}
 
-function EducationForm({education}) {
+
+function EducationForm({education, currentlyEditing}) {
+  const currentSchool = education.get[currentlyEditing];
+  
   return (
-    <Input label="School" isRequired={true} state={education}></Input>
+    <>
+    <Input label="School" isRequired={true} state={education} value={currentSchool.school}></Input>
+    <Input label="Degree" isRequired={true} state={education} value={currentSchool.degree}></Input>
+    <Input label="Start Date" isRequired={true} state={education} value={currentSchool.startDate}></Input>
+    <Input label="End date" isRequired={true} state={education} value={currentSchool.endDate}></Input>
+    <Input label="Location" isRequired={true} state={education} value={currentSchool.location}></Input>
+    </>
   )
 }
 
 export function Education({ education }) {
-  const [sectionState, setSectionState] = useState('collapsed');
-  
+  const [currentlyEditing, setCurrentlyEditing] = useState(0);
 
-  function changeState() {
-    sectionState === 'collapsed' ? setSectionState('extended') : setSectionState('collapsed');
+  function changeForm(index) {
+    setCurrentlyEditing(index)
   }
 
-  function displayEducationForm() {
-    setSectionState('edit');
-    const id = getId()
-    const newArray = educationFactory('','','','','')
-    education.set({...education.get, [id]: newArray})
-    console.log(education.get);
-    }
-
-  if (sectionState === 'collapsed') {
-    return (
-      <Section header="Education" isExtendable={true} sectionState={sectionState} onClick={changeState}>
-      </Section>
-    )
-  } else if (sectionState === 'extended'){
-    return (
-      <Section header="Education" isExtendable={true} sectionState={sectionState} onClick={changeState}>
-        <InformationList></InformationList> 
-        <button onClick={displayEducationForm}>
-          Education
-        </button>
-      </Section>
-    )
-  } else {
-    return (
-      <Section header="Education" isExtendable={true} sectionState={sectionState}>
-        <EducationForm education={education}></EducationForm>
-      </Section>
-    )
-  }
   
+
+  function addSchool() {
+    education.set([...education.get, educationFactory(getId(), '','','','','')])
+    setCurrentlyEditing(education.get.length)
+    console.log(education);
+  }
+
+    return (
+      <Section header="Education">
+        <ItemsList state={education} handleChange={changeForm} handleAdd={addSchool}></ItemsList>
+        <EducationForm education={education} currentlyEditing={currentlyEditing}></EducationForm>
+      </Section>
+    )
 }

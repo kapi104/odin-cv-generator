@@ -1,4 +1,4 @@
-let id = 0
+import { v4 as uuid } from "uuid";
 
 function camelCase(str) {
   return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function (word, index) {
@@ -7,8 +7,17 @@ function camelCase(str) {
 }
 
 function getId() {
-  id++;
-  return id;
+  return uuid();
 }
 
-export {camelCase, getId}
+function educationFactory(id, school, degree, startDate, endDate, location) {
+  return {
+  id,
+ school,
+ degree,
+ startDate,
+ endDate,
+ location}
+}
+
+export {camelCase, getId, educationFactory}

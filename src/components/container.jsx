@@ -16,13 +16,26 @@ export default function Container() {
     set: setPersonalDetails
   }
 
-  const [educationDetails, setEducation] = useState({})
+  const [educationDetails, setEducation] = useState([
+    {id: 0,
+    school:'test',
+    degree:'test',
+    startDate:'test',
+    endDate:'test',
+    location:'test'},
+    {id: 1,
+      school:'test1',
+      degree:'test1',
+      startDate:'test1',
+      endDate:'test1',
+      location:'test1'}
+  ])
   const education = {
     get: educationDetails,
     set: setEducation
   }
 
-  const [experienceDetails, setExperience] = useState({})
+  const [experienceDetails, setExperience] = useState([])
   const experience = {
     get: experienceDetails,
     set: setExperience
