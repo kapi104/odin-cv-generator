@@ -1,6 +1,7 @@
 import { useState } from "react"
 import {Edit} from "./edit";
 import Cv from "./cv";
+import { getId } from "../assets/utils";
 
 const personalDetailsTemplate = {
   fullName: '',
@@ -17,25 +18,27 @@ export default function Container() {
   }
 
   const [educationDetails, setEducation] = useState([
-    {id: 0,
-    school:'test',
-    degree:'test',
-    startDate:'test',
-    endDate:'test',
-    location:'test'},
-    {id: 1,
-      school:'test1',
-      degree:'test1',
-      startDate:'test1',
-      endDate:'test1',
-      location:'test1'}
+    {id: getId(),
+    school:'',
+    degree:'',
+    startDate:'',
+    endDate:'',
+    location:''},
   ])
   const education = {
     get: educationDetails,
     set: setEducation
   }
 
-  const [experienceDetails, setExperience] = useState([])
+  const [experienceDetails, setExperience] = useState([
+    {id:'',
+ company:'',
+ position:'',
+ startDate:'',
+ endDate:'',
+ location:'',
+ description:''}
+  ])
   const experience = {
     get: experienceDetails,
     set: setExperience

@@ -1,6 +1,6 @@
 import { PersonalDetailsForm } from "./PersonalDetailsForm";
 import { Education } from "./Education";
-import { element } from "prop-types";
+import { Experience } from "./experience";
 
 export function Section({ header, children}) {
   return (
@@ -43,6 +43,7 @@ export default function ContentForms({states}) {
     <>
       <PersonalDetailsForm personal={states.personal}></PersonalDetailsForm>
       <Education education={states.education}></Education>
+      <Experience experience={states.experience}></Experience>
     </>
   );
 }

@@ -20,4 +20,15 @@ function educationFactory(id, school, degree, startDate, endDate, location) {
  location}
 }
 
-export {camelCase, getId, educationFactory}
+function experienceFactory(id, company, position, startDate, endDate, location, description) {
+  return {
+  id,
+ company,
+ position,
+ startDate,
+ endDate,
+ location,
+ description}
+}
+
+export {camelCase, getId, educationFactory, experienceFactory}
