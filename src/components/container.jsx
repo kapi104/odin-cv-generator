@@ -3,17 +3,15 @@ import { Edit } from "./edit";
 import Cv from "./cv";
 import { getId } from "../assets/utils";
 
-const personalDetailsTemplate = {
-  fullName: "",
-  email: "",
-  phoneNumber: "",
-  address: "",
-};
+const personalDetailsTemplate = {};
 
 export default function Container() {
-  const [personalDetails, setPersonalDetails] = useState(
-    personalDetailsTemplate,
-  );
+  const [personalDetails, setPersonalDetails] = useState({
+    fullName: "",
+    email: "",
+    phoneNumber: "",
+    address: "",
+  });
   const personal = {
     get: personalDetails,
     set: setPersonalDetails,
@@ -37,7 +35,7 @@ export default function Container() {
   const [experienceDetails, setExperience] = useState([
     {
       id: getId(),
-      company: "1",
+      company: "",
       positionTitle: "",
       startDate: "",
       endDate: "",
@@ -53,7 +51,7 @@ export default function Container() {
   return (
     <div className="container">
       <Edit states={{ personal, education, experience }}></Edit>
-      <Cv></Cv>
+      <Cv states={{ personal, education, experience }}></Cv>
     </div>
   );
 }

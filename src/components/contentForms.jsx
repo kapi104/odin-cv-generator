@@ -16,7 +16,7 @@ export function Section({ header, children }) {
 function ListItem({ index, handleChange }) {
   return (
     <li>
-      <button onClick={() => handleChange(index)}>{index}</button>
+      <button onClick={() => handleChange(index)}>{index + 1}</button>
     </li>
   );
 }

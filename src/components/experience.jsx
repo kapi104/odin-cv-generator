@@ -104,7 +104,6 @@ export function Experience({ experience }) {
     newFormValue[currentlyEditing][camelCase] = value;
 
     experience.set([...newFormValue]);
-    console.log(newFormValue);
   }
 
   return (

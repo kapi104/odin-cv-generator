@@ -44,6 +44,7 @@ function Input({
 export function TextArea({
   label,
   isRequired = false,
+  type = "text",
   value,
   handleInput,
   formPrefix,
@@ -55,6 +56,7 @@ export function TextArea({
       <label htmlFor={id}>{label}</label>
       <textarea
         value={value}
+        type={type}
         id={id}
         required={isRequired}
         onChange={(e) => {

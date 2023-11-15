@@ -92,11 +92,13 @@ export function Education({ education }) {
   }
 
   function handleInput(value, camelCase) {
-    const newFormValue = education.get;
-    newFormValue[currentlyEditing][camelCase] = value;
+    const newValue = { ...education.get[currentlyEditing] };
 
-    education.set([...newFormValue]);
-    console.log(newFormValue);
+    const newEducation = education.get.map((i) =>
+      i.id === newValue.id ? { ...i, [camelCase]: value } : i,
+    );
+
+    education.set(newEducation);
   }
 
   return (
