@@ -3,31 +3,37 @@ import Icon from "@mdi/react";
 import { mdiEmail, mdiPhone, mdiMapMarker, mdiMap } from "@mdi/js";
 
 function Personal({ personal }) {
-    return (
-      <>
-        <h1>{personal.get.fullName}</h1>
-        <div className={Object.values(personal.get).filter((i) => i === "").length === 2 ? 'flex-center' : null}>
-          {personal.get.email !== '' &&
+  return (
+    <>
+      <h1>{personal.get.fullName}</h1>
+      <div
+        className={
+          Object.values(personal.get).filter((i) => i === "").length === 2
+            ? "flex-center"
+            : null
+        }
+      >
+        {personal.get.email !== "" && (
           <span>
             <Icon path={mdiEmail} size={1} />
             {personal.get.email}
           </span>
-          }
-          {personal.get.phoneNumber !== '' &&
+        )}
+        {personal.get.phoneNumber !== "" && (
           <span>
             <Icon path={mdiPhone} size={1} />
             {personal.get.phoneNumber}
           </span>
-          }
-          {personal.get.address !== '' &&
+        )}
+        {personal.get.address !== "" && (
           <span>
             <Icon path={mdiMapMarker} size={1} />
             {personal.get.address}
           </span>
-          }
-        </div>
-        </>
-    );
+        )}
+      </div>
+    </>
+  );
 }
 
 function Education({ education }) {
@@ -88,22 +94,21 @@ function Experience({ experience }) {
 }
 
 export default function Cv({ states, styles }) {
-  const backgroundColor = styles.get.backgroundColor
-  const color = styles.get.color
+  const backgroundColor = styles.get.backgroundColor;
+  const color = styles.get.color;
   return (
     <div className="cv">
-      {Object.values(states.personal.get).filter((i) => i === "").length !== 4 ?
-      <header 
-      style={{
-        backgroundColor,
-        color
-      }}
-        
-      >
-      <Personal personal={states.personal}></Personal>
-      </header> :
-      null
-    }
+      {Object.values(states.personal.get).filter((i) => i === "").length !==
+      4 ? (
+        <header
+          style={{
+            backgroundColor,
+            color,
+          }}
+        >
+          <Personal personal={states.personal}></Personal>
+        </header>
+      ) : null}
       <main>
         <Education education={states.education}></Education>
         <Experience experience={states.experience}></Experience>

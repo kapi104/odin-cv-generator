@@ -49,13 +49,13 @@ export default function Container() {
   };
 
   const [editableStyles, setEditableStyles] = useState({
-      backgroundColor: 'rgb(0, 0, 151)',
-      color: 'rgb(255, 255, 255)'
-  })
+    backgroundColor: "rgb(0, 0, 151)",
+    color: "rgb(255, 255, 255)",
+  });
   const styles = {
     get: editableStyles,
-    set: setEditableStyles
-  }
+    set: setEditableStyles,
+  };
 
   return (
     <div className="container">
