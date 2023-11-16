@@ -20,11 +20,11 @@ export default function Container() {
   const [educationDetails, setEducation] = useState([
     {
       id: getId(),
-      school: "",
-      degree: "",
-      startDate: "",
-      endDate: "",
-      location: "",
+      school: "school",
+      degree: "degree",
+      startDate: "02.02.2020",
+      endDate: "20.08.2023",
+      location: "warsaw",
     },
   ]);
   const education = {
@@ -35,12 +35,12 @@ export default function Container() {
   const [experienceDetails, setExperience] = useState([
     {
       id: getId(),
-      company: "",
-      positionTitle: "",
-      startDate: "",
-      endDate: "",
-      location: "",
-      description: "",
+      company: "gerfgtre",
+      positionTitle: "gregfefa",
+      startDate: "trergd",
+      endDate: "tdsfew",
+      location: "dgatgerads",
+      description: "rewdasfgdsarfewarewg",
     },
   ]);
   const experience = {

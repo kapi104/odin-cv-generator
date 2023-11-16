@@ -1,12 +1,16 @@
+import "./../css/cv.css";
+import Icon from "@mdi/react";
+import { mdiEmail, mdiPhone, mdiMapMarker, mdiMap } from "@mdi/js";
+
 function Personal({ personal }) {
   if (Object.values(personal.get).filter((i) => i === "").length !== 4) {
     return (
       <header>
         <h1>{personal.get.fullName}</h1>
         <div>
-          <span>{personal.get.email}</span>
-          <span>{personal.get.phoneNumber}</span>
-          <span>{personal.get.address}</span>
+          <span><Icon path={mdiEmail} size={1} />{personal.get.email}</span>
+          <span><Icon path={mdiPhone} size={1} />{personal.get.phoneNumber}</span>
+          <span><Icon path={mdiMapMarker} size={1} />{personal.get.address}</span>
         </div>
       </header>
     );
@@ -30,7 +34,7 @@ function Education({ education }) {
               </span>
               <span>{element.location}</span>
             </div>
-            <div className="school-data">
+            <div className="details">
               <h3>{element.school}</h3>
               <span>{element.degree}</span>
             </div>
@@ -58,7 +62,7 @@ function Experience({ experience }) {
               </span>
               <span>{element.location}</span>
             </div>
-            <div className="school-data">
+            <div className="details">
               <h3>{element.company}</h3>
               <span>{element.positionTitle}</span>
               <span>{element.description}</span>

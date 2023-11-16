@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Section, DeleteBtn, ItemsList } from "./contentForms";
 import { Input } from "./edit";
 import { educationFactory, getId } from "../assets/utils";
+import { mdiSchool } from "@mdi/js";
 
 function EducationForm({ education, currentlyEditing, handleInput }) {
   const currentSchool = education.get[currentlyEditing];
@@ -35,7 +36,7 @@ function EducationForm({ education, currentlyEditing, handleInput }) {
       ></Input>
       <Input
         formPrefix={formPrefix}
-        label="End date"
+        label="End Date"
         isRequired={true}
         state={education}
         value={currentSchool.endDate}
@@ -102,10 +103,11 @@ export function Education({ education }) {
   }
 
   return (
-    <Section header="Education">
+    <Section header="Education" icon={mdiSchool}>
       <ItemsList
         state={education}
         handleChange={changeForm}
+        currentlyEditing={currentlyEditing}
         handleAdd={addSchool}
       ></ItemsList>
       <EducationForm

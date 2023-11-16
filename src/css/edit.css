@@ -2,10 +2,105 @@
   background-color: rgb(255, 255, 255);
   box-shadow: 1px 1px 8px rgb(184, 184, 184);
   width: 90%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 1rem;
 }
 
 .forms > button {
   display: flex;
   justify-content: space-between;
   border: none;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.forms h2 {
+  margin-top: 0;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.form-inputs .input {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  font-weight: 500;
+}
+
+.form-inputs .input:not(:last-child) {
+  padding-bottom: .7rem;
+}
+
+.form-inputs input , .form-inputs textarea{
+  border: none;
+  background-color: whitesmoke;
+  padding: .5rem;
+  border-radius: .5rem;
+  resize: none;
+  border: 2px solid rgba(0, 0, 0, 0);
+  transition: border .15s;
+}
+
+.form-inputs input:focus , .form-inputs textarea:focus {
+  box-sizing: border-box;
+  outline: none;
+  border: 2px solid var(--chosen-background-color);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover
+ {
+  -webkit-text-fill-color: black;
+  -webkit-box-shadow: 0 0 0px 1000px whitesmoke inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+ul {
+  list-style: none;
+  padding: .4rem 0;
+  display: flex;
+  justify-content: center;
+  gap: .8rem;
+  overflow-x: auto;
+}
+
+  ul {
+    scrollbar-width: none;
+    scrollbar-color: var(--chosen-background-color) #ffffff;
+  }
+
+  ul::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  ul::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+
+  ul::-webkit-scrollbar-thumb {
+    background-color: var(--chosen-background-color);
+    border-radius: 10px;
+    border: 5px solid #ffffff;
+  }
+
+li > button, .delete-button {
+  position: relative;
+  border: none;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 20%;
+  transition: all .1s;
+}
+
+li > button:hover, .delete-button:hover {
+  box-shadow: 0px 0px 2px 2px var(--chosen-background-color);
+}
+
+.active-button {
+  transform: translateY(-.2rem);
+  box-shadow: 0px 0px 2px 2px var(--chosen-background-color);
 }

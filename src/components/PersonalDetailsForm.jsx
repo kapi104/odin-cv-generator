@@ -1,5 +1,6 @@
 import { Input } from "./edit";
 import { Section } from "./contentForms";
+import { mdiAccount } from "@mdi/js";
 
 export function PersonalDetailsForm({ personal }) {
   function handleInput(value, camelCase) {
@@ -8,7 +9,7 @@ export function PersonalDetailsForm({ personal }) {
   }
 
   return (
-    <Section header="personal Details">
+    <Section header="Personal details" icon={mdiAccount}>
       <Input
         label="Full name"
         isRequired={true}

@@ -33,6 +33,7 @@ function Input({
         value={value}
         id={id}
         required={isRequired}
+        placeholder={`Enter ${label}`}
         onChange={(e) => {
           handleInput(e.target.value, camelCaseLabel);
         }}
@@ -59,6 +60,7 @@ export function TextArea({
         type={type}
         id={id}
         required={isRequired}
+        placeholder={`Enter ${label}`}
         onChange={(e) => {
           handleInput(e.target.value, camelCaseLabel);
         }}

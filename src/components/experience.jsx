@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Section, DeleteBtn, ItemsList } from "./contentForms";
 import { Input, TextArea } from "./edit";
 import { experienceFactory, getId } from "../assets/utils";
+import { mdiBriefcase } from "@mdi/js";
 
 function ExperienceForm({ experience, currentlyEditing, handleInput }) {
   const currentCompany = experience.get[currentlyEditing];
@@ -35,7 +36,7 @@ function ExperienceForm({ experience, currentlyEditing, handleInput }) {
       ></Input>
       <Input
         formPrefix={formPrefix}
-        label="End date"
+        label="End Date"
         isRequired={true}
         state={experience}
         value={currentCompany.endDate}
@@ -107,10 +108,11 @@ export function Experience({ experience }) {
   }
 
   return (
-    <Section header="Experience">
+    <Section header="Experience" icon={mdiBriefcase}>
       <ItemsList
         state={experience}
         handleChange={changeForm}
+        currentlyEditing={currentlyEditing}
         handleAdd={addCompany}
       ></ItemsList>
       <ExperienceForm
