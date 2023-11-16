@@ -13,24 +13,28 @@ export function PersonalDetailsForm({ personal }) {
       <Input
         label="Full name"
         isRequired={true}
+        value={personal.get.fullName}
         state={personal}
         handleInput={handleInput}
       ></Input>
       <Input
         label="Email"
         type="email"
+        value={personal.get.email}
         state={personal}
         handleInput={handleInput}
       ></Input>
       <Input
         label="Phone number"
         type="phone"
+        value={personal.get.phoneNumber}
         state={personal}
         handleInput={handleInput}
       ></Input>
       <Input
         label="Address"
         type="text"
+        value={personal.get.adress}
         state={personal}
         handleInput={handleInput}
       ></Input>

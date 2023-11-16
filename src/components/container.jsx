@@ -7,10 +7,10 @@ const personalDetailsTemplate = {};
 
 export default function Container() {
   const [personalDetails, setPersonalDetails] = useState({
-    fullName: "",
-    email: "",
-    phoneNumber: "",
-    address: "",
+    fullName: "John Smith",
+    email: "email@example.com",
+    phoneNumber: "111 222 333",
+    address: "New York, USA",
   });
   const personal = {
     get: personalDetails,
@@ -20,11 +20,11 @@ export default function Container() {
   const [educationDetails, setEducation] = useState([
     {
       id: getId(),
-      school: "school",
-      degree: "degree",
-      startDate: "02.02.2020",
-      endDate: "20.08.2023",
-      location: "warsaw",
+      school: "University of Oxford",
+      degree: "Computer science",
+      startDate: "01.10.2015",
+      endDate: "23.06.2020",
+      location: "Oxford, UK",
     },
   ]);
   const education = {
@@ -35,12 +35,12 @@ export default function Container() {
   const [experienceDetails, setExperience] = useState([
     {
       id: getId(),
-      company: "gerfgtre",
-      positionTitle: "gregfefa",
-      startDate: "trergd",
-      endDate: "tdsfew",
-      location: "dgatgerads",
-      description: "rewdasfgdsarfewarewg",
+      company: "Google",
+      positionTitle: "Junior web developer",
+      startDate: "1.07.2020",
+      endDate: "30.06.2023",
+      location: "San Francisco, USA",
+      description: "Helping team in developing new technologies",
     },
   ]);
   const experience = {
@@ -48,10 +48,19 @@ export default function Container() {
     set: setExperience,
   };
 
+  const [editableStyles, setEditableStyles] = useState({
+      backgroundColor: 'rgb(0, 0, 151)',
+      color: 'rgb(255, 255, 255)'
+  })
+  const styles = {
+    get: editableStyles,
+    set: setEditableStyles
+  }
+
   return (
     <div className="container">
-      <Edit states={{ personal, education, experience }}></Edit>
-      <Cv states={{ personal, education, experience }}></Cv>
+      <Edit states={{ personal, education, experience }} styles={styles}></Edit>
+      <Cv states={{ personal, education, experience }} styles={styles}></Cv>
     </div>
   );
 }

@@ -69,7 +69,7 @@ export function TextArea({
   );
 }
 
-export default function Edit({ states }) {
+export default function Edit({ states, styles }) {
   const [currentForm, setCurrentForm] = useState("content");
 
   function changeCurrentForm() {
@@ -85,7 +85,7 @@ export default function Edit({ states }) {
       {currentForm === "content" ? (
         <ContentForms states={states}></ContentForms>
       ) : (
-        <CustomizeForms></CustomizeForms>
+        <CustomizeForms styles={styles}></CustomizeForms>
       )}
     </div>
   );
