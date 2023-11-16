@@ -21,7 +21,7 @@
   margin-top: 0;
   display: flex;
   align-items: center;
-  gap: .5rem;
+  gap: 0.5rem;
 }
 
 .form-inputs .input {
@@ -32,28 +32,29 @@
 }
 
 .form-inputs .input:not(:last-child) {
-  padding-bottom: .7rem;
+  padding-bottom: 0.7rem;
 }
 
-.form-inputs input , .form-inputs textarea{
+.form-inputs input,
+.form-inputs textarea {
   border: none;
   background-color: whitesmoke;
-  padding: .5rem;
-  border-radius: .5rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
   resize: none;
   border: 2px solid rgba(0, 0, 0, 0);
-  transition: border .15s;
+  transition: border 0.15s;
 }
 
-.form-inputs input:focus , .form-inputs textarea:focus {
+.form-inputs input:focus,
+.form-inputs textarea:focus {
   box-sizing: border-box;
   outline: none;
   border: 2px solid var(--chosen-background-color);
 }
 
 input:-webkit-autofill,
-input:-webkit-autofill:hover
- {
+input:-webkit-autofill:hover {
   -webkit-text-fill-color: black;
   -webkit-box-shadow: 0 0 0px 1000px whitesmoke inset;
   transition: background-color 5000s ease-in-out 0s;
@@ -61,46 +62,48 @@ input:-webkit-autofill:hover
 
 ul {
   list-style: none;
-  padding: .4rem 0;
+  padding: 0.4rem 0;
   display: flex;
   justify-content: center;
-  gap: .8rem;
+  gap: 0.8rem;
   overflow-x: auto;
 }
 
-  ul {
-    scrollbar-width: none;
-    scrollbar-color: var(--chosen-background-color) #ffffff;
-  }
+ul {
+  scrollbar-width: none;
+  scrollbar-color: var(--chosen-background-color) #ffffff;
+}
 
-  ul::-webkit-scrollbar {
-    width: 16px;
-  }
+ul::-webkit-scrollbar {
+  width: 16px;
+}
 
-  ul::-webkit-scrollbar-track {
-    background: #ffffff;
-  }
+ul::-webkit-scrollbar-track {
+  background: #ffffff;
+}
 
-  ul::-webkit-scrollbar-thumb {
-    background-color: var(--chosen-background-color);
-    border-radius: 10px;
-    border: 5px solid #ffffff;
-  }
+ul::-webkit-scrollbar-thumb {
+  background-color: var(--chosen-background-color);
+  border-radius: 10px;
+  border: 5px solid #ffffff;
+}
 
-li > button, .delete-button {
+li > button,
+.delete-button {
   position: relative;
   border: none;
   height: 2rem;
   width: 2rem;
   border-radius: 20%;
-  transition: all .1s;
+  transition: all 0.1s;
 }
 
-li > button:hover, .delete-button:hover {
+li > button:hover,
+.delete-button:hover {
   box-shadow: 0px 0px 2px 2px var(--chosen-background-color);
 }
 
 .active-button {
-  transform: translateY(-.2rem);
+  transform: translateY(-0.2rem);
   box-shadow: 0px 0px 2px 2px var(--chosen-background-color);
 }

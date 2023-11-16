@@ -1,14 +1,17 @@
 import { PersonalDetailsForm } from "./PersonalDetailsForm";
 import { Education } from "./Education";
 import { Experience } from "./experience";
-import Icon from '@mdi/react';
-import { mdiAccount, mdiSchool, mdiBriefcase} from '@mdi/js';
+import Icon from "@mdi/react";
+import { mdiAccount, mdiSchool, mdiBriefcase } from "@mdi/js";
 
 export function Section({ header, children, icon }) {
   return (
     <div>
       <header>
-        <h2><Icon path={icon} size={1}></Icon>{header}</h2>
+        <h2>
+          <Icon path={icon} size={1}></Icon>
+          {header}
+        </h2>
       </header>
       <div className="form-inputs">{children}</div>
     </div>
@@ -58,7 +61,11 @@ export function ItemsList({
 }
 
 export function DeleteBtn({ handleDelete }) {
-  return <button className="delete-button" onClick={handleDelete}>-</button>;
+  return (
+    <button className="delete-button" onClick={handleDelete}>
+      -
+    </button>
+  );
 }
 
 export default function ContentForms({ states }) {

@@ -8,9 +8,18 @@ function Personal({ personal }) {
       <header>
         <h1>{personal.get.fullName}</h1>
         <div>
-          <span><Icon path={mdiEmail} size={1} />{personal.get.email}</span>
-          <span><Icon path={mdiPhone} size={1} />{personal.get.phoneNumber}</span>
-          <span><Icon path={mdiMapMarker} size={1} />{personal.get.address}</span>
+          <span>
+            <Icon path={mdiEmail} size={1} />
+            {personal.get.email}
+          </span>
+          <span>
+            <Icon path={mdiPhone} size={1} />
+            {personal.get.phoneNumber}
+          </span>
+          <span>
+            <Icon path={mdiMapMarker} size={1} />
+            {personal.get.address}
+          </span>
         </div>
       </header>
     );
