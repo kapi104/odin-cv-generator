@@ -2,7 +2,6 @@ import { PersonalDetailsForm } from "./PersonalDetailsForm";
 import { Education } from "./Education";
 import { Experience } from "./experience";
 import Icon from "@mdi/react";
-import { mdiAccount, mdiSchool, mdiBriefcase } from "@mdi/js";
 
 export function Section({ header, children, icon }) {
   return (
@@ -68,12 +67,12 @@ export function DeleteBtn({ handleDelete }) {
   );
 }
 
-export default function ContentForms({ states }) {
+export default function ContentForms({ states, styles }) {
   return (
     <>
       <PersonalDetailsForm personal={states.personal}></PersonalDetailsForm>
-      <Education education={states.education}></Education>
-      <Experience experience={states.experience}></Experience>
+      <Education education={states.education} styles={styles}></Education>
+      <Experience experience={states.experience} styles={styles}></Experience>
     </>
   );
 }

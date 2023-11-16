@@ -54,7 +54,7 @@ function EducationForm({ education, currentlyEditing, handleInput }) {
   );
 }
 
-export function Education({ education }) {
+export function Education({ education, styles }) {
   const [currentlyEditing, setCurrentlyEditing] = useState(0);
 
   function changeForm(index) {

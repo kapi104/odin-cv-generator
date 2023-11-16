@@ -79,11 +79,16 @@ export default function Edit({ states, styles }) {
   }
 
   return (
-    <div className="forms">
+    <div
+      className="forms"
+      style={{
+        "--accent-color": styles.get.backgroundColor,
+      }}
+    >
       <SwitchFormBtn onClick={changeCurrentForm}></SwitchFormBtn>
 
       {currentForm === "content" ? (
-        <ContentForms states={states}></ContentForms>
+        <ContentForms states={states} styles={styles}></ContentForms>
       ) : (
         <CustomizeForms styles={styles}></CustomizeForms>
       )}
